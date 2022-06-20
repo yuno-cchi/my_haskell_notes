@@ -161,10 +161,16 @@ main = do
 > `(x:xs)`, though
 
 To illustrate this function mathematically we can say: 
-$\\let~sum(\varnothing)~=~0,~and\\$
-$sum(\{a,b...z\}) \\=a + sum(\{b,c,...\})$
-$\\=a + b + sum(\{c,...z\}) \\... \\= a + b + c + ... + z + sum(\{~~\})$
-$\\=a+b + c + ... + z + 0 \\=a+b+...+z$
+```
+let sum({ }) = 0
+let sum({a,b,...z})
+  = a + sum({b,...z})
+  = a + b + sum({...})
+  ...
+  = a + b + ... + z + sum({ })
+  = a + b + ... + z + 0
+  = a + b + ... + z
+```
 
 ### Another example:
 ```hs
