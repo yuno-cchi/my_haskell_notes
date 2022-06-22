@@ -16,7 +16,7 @@ Create a function `my_elem` that returns:
     
     my_elem _ [] = False
     my_elem a (head:tail)
-        | a == x    = True
+        | a == head = True
         | otherwise = False
 
 </details>
